@@ -1,0 +1,13 @@
+{
+  "date": "2025-05-17",
+  "title": "「PNZ Valorant Custom -豪-」技術記録および配信フローの公開",
+  "thumbnail": "/news_images/news-250517-00-thumb.jpg",
+  "body": "GitHubにて、2023年12月16日に開催された「PNZ Valorant Custom -豪-」の配信技術構成や演出手法を記録・共有しました。",
+  "tags": ["VALORANT","EVENT"],
+  "url": [
+  {
+    "type" :"GitHub",
+    "url":"https://github.com/TEAMPNZ/PNZ-VALORANT-CUSTOM-GO"
+  }
+  ]
+}

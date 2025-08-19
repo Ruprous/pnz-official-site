@@ -1,0 +1,17 @@
+{
+  "date": "2025-08-14",
+  "title": "PNZ 公式ホームページのリニューアル",
+  "thumbnail": "",
+  "body": "PNZ 公式ホームページ(当サイト)のリニューアルを行いました。CREATORのRuprous(ラプラス)が設計・実装しました",
+  "tags": ["INFO"],
+  "url": [
+  {
+    "type":"HP",
+    "url":"https://pnzofficial.com/"
+  },
+  {
+    "type":"Ruprous",
+    "url":"/member/Ruprous"
+  }
+  ]
+}
