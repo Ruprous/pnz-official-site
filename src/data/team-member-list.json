@@ -122,6 +122,10 @@
       {
         "type": "YouTube",
         "url": "https://www.youtube.com/@PNZ_Mo_Ko"
+      },
+      {
+        "type":"Twitch",
+        "url":"https://www.twitch.tv/pnz_mo_ko"
       }
     ]
   },

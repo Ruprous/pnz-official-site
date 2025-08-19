@@ -38,7 +38,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           <a href="/project" className={styles.navLink}>PROJECT</a>
           <a href="/member" className={styles.navLink}>MEMBER</a>
           <a href="/newslist" className={styles.navLink}>NEWS</a>
-          <a href="/sponsor" className={styles.navLink}>SPONSOR</a>
+          {/* <a href="/sponsor" className={layoutStyles.headerNavLink}>SPONSOR</a> */}
     <Link to="/contact" className={styles.navLink}>CONTACT</Link>
     </nav>
       </header>
