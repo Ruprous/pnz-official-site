@@ -180,7 +180,7 @@ const Top: React.FC = () => {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
                 <img
-                  src="/profile_images/icon_bunta.png"
+                  src="/profile_images/icon_bunta.jpg"
                   alt="オーナーアイコン"
                   className={styles.greetingIcon}
                 />
