@@ -4,7 +4,7 @@
     "name_en": "Bunta",
     "role": "OWNER",
     "description": "バズ動画を量産し続ける時代を作る天才オーナー。メンバーに飯を奢り金欠だが本人曰く経済を回してるとのこと。",
-    "icon": "profile_images/icon_bunta.png",
+  "icon": "profile_images/icon_bunta.jpg",
     "sns": [
       {
         "type": "X",
@@ -25,7 +25,7 @@
     "name_en": "Miyagi Rei",
     "role": "STREAMER",
     "description": "インクに魂を込めろ！スプラトゥーンをこよなく愛し、ソイチューバーを自在に操る情熱のVTuber！\nその名はV界に轟く、絶対に有名になる存在・宮城玲！",
-    "icon": "profile_images/icon_miyagirei.png",
+  "icon": "profile_images/icon_miyagirei.jpg",
     "sns": [
       {
         "type": "X",
@@ -50,7 +50,7 @@
     "name_en": "Benben",
     "role": "STREAMER",
     "description": "酒をこよなく愛し、酒カス陰キャニートを自称しながらも、その野望は世界を獲ること！\nポーカーの腕前も一級品！ギャップに満ちた異端のYouTuber！",
-    "icon": "profile_images/icon_benbeen.png",
+  "icon": "profile_images/icon_benbeen.jpg",
     "sns": [
       {
         "type": "X",
@@ -71,7 +71,7 @@
     "name_en": "Tosshie",
     "role": "STREAMER",
     "description": "東京都大田区蒲田発の新人Vtuber!! ゲーム配信・歌・雑談を日々全力でお届け!!\n多彩な趣味で、誰もがハマるトーク＆熱い配信を元気に楽しく、Twitchで爆発中！",
-    "icon": "profile_images/icon_tosshie.png",
+  "icon": "profile_images/icon_tosshie.jpg",
     "sns": [
       {
         "type": "X",
@@ -92,7 +92,7 @@
     "name_en": "Tekken Kazama",
     "role": "STREAMER",
     "description": "熱く燃える実況はこの男に任せろ！豪快に飲み干す酒豪の柱にして、チームを支える魂の実況者！拳で語る情熱、その名も鉄拳かざま!!",
-    "icon": "profile_images/icon_tekkenkazama.png",
+  "icon": "profile_images/icon_tekkenkazama.jpg",
     "sns": [
       {
         "type": "X",
@@ -113,7 +113,7 @@
     "name_en": "Moko-chan",
     "role": "STREAMER",
     "description": "ウィングマン片手に戦場を駆け抜け、カスタムもイベントも自分の庭にしてしまう！気さくで絡みやすく、配信すればみんなが集まる！APEX界を盛り上げるカスタムメーカー！",
-    "icon": "images/icon2.jpg",
+    "icon": "profile_images/icon_moko.jpg",
     "sns": [
       {
         "type": "X",
@@ -130,7 +130,7 @@
     "name_en": "Torippi Akira",
     "role": "STREAMER",
     "description": "努力の熱量は誰にも負けない！エンタメ全開の配信者！原点はドラゴンボール！\n誰が焼き鳥じゃ！！！ワクワクを映像とゲームで届ける、情熱の男!!",
-    "icon": "profile_images/icon_torippi.png",
+  "icon": "profile_images/icon_torippi.jpg",
     "sns": [
       {
         "type": "X",
@@ -151,11 +151,11 @@
     "name_en": "Chari-chan",
     "role": "STREAMER",
     "description": "みんなからの“愛”が私の原動力！そしてその“愛”をみんなに届けるよ♡₊⁺ \n実写とVTuber、二つの顔で輝く2.5次元のアイドルちゃりちゃん！",
-    "icon": "profile_images/icon_chari.png",
+  "icon": "profile_images/icon_chari.jpg",
     "sns": [
       {
         "type": "X",
-        "url": "https://x.com/cha06___"
+        "url": "https://x.com/charichan___"
       },
       {
         "type": "Twitch",
@@ -176,7 +176,7 @@
     "name_en": "Kinako Latte",
     "role": "STREAMER",
     "description": "いらっしゃいませ！喫茶きなこラテへようこそ！かわいい熊っこVtuber、甘いカワボで魅力たっぷり！\nみんなの心の居場所を届けるきなこラテ！",
-    "icon": "profile_images/icon_kinakolate.png",
+  "icon": "profile_images/icon_kinakolate.jpg",
     "sns": [
       {
         "type": "X",
@@ -197,7 +197,7 @@
     "name_en": "Ruprous",
     "role": "CREATOR",
     "description": "画像も映像もお手の物!!彼に創れないものはない！センスと技術を持つ天才マルチクリエイター!!\nこのHPも「私が作りました」",
-    "icon": "profile_images/icon_ruprous.png",
+  "icon": "profile_images/icon_ruprous.jpg",
     "sns": [
       {
         "type": "X",
@@ -222,7 +222,7 @@
     "name_en": "NAN4MY",
     "role": "CREATOR",
     "description": "写真を撮れば世界を切り取り、映像を作れば物語が生まれる！制作とゲームを両立させる多才なクリエイター!!",
-    "icon": "profile_images/icon_nanamy.png",
+  "icon": "profile_images/icon_nanamy.jpg",
     "sns": [
       {
         "type": "X",
@@ -243,7 +243,7 @@
     "name_en": "Map",
     "role": "PLAYER",
     "description": "3アカ同時プレデター維持の異名を持ち、APEXを誰よりも愛する男！最高到達ランクはなんと世界4位！伝説級の実力を誇るトッププレイヤー！",
-    "icon": "profile_images/icon_map.png",
+  "icon": "profile_images/icon_map.jpg",
     "sns": [
       {
         "type": "X",
@@ -275,7 +275,7 @@
     "name_en": "Kondou",
     "role": "PLAYER",
     "description": "情熱とユーモアほとばしる最高にアツい男！世界を沸かす実況力で魅せる一方、だいたい二日酔い！そして今も禁煙に挑み続ける努力家！！",
-    "icon": "profile_images/icon_kondou.png",
+  "icon": "profile_images/icon_kondou.jpg",
     "sns": [
       {
         "type": "YouTube",
@@ -318,7 +318,7 @@
     "name_en": "Hakura",
     "role": "PLAYER",
     "description": "どんなゲームも器用にこなし、楽しむことを忘れないオールラウンダー！中でもFPSをこよなく愛し、戦場を駆け抜ける情熱ゲーマー!!",
-    "icon": "profile_images/icon_hakura.png",
+  "icon": "profile_images/icon_hakura.jpg",
     "sns": [
       {
         "type": "X",
@@ -335,7 +335,7 @@
     "name_en": "Noko",
     "role": "PLAYER",
     "description": "チームいちの若さを武器に、圧倒的な強さで未来を切り拓く！次世代を担うホープ!",
-    "icon": "profile_images/icon_noko.png",
+  "icon": "profile_images/icon_noko.jpg",
     "sns": [
       {
         "type": "YouTube",
@@ -400,7 +400,7 @@
     "name_en": "Uy-Uda",
     "role": "PLAYER",
     "description": "FPSはもちろんコアなゲームにも精通し、知識と研究心で磨き上げる頭脳派ゲーマー！座学担当として学ぶことを楽しみ、アニメもゲームも愛するクールな知性派!!",
-    "icon": "profile_images/icon_uda.png",
+  "icon": "profile_images/icon_uda.jpg",
     "sns": [
       {
         "type": "YouTube",
@@ -451,7 +451,7 @@
     "name_en": "Odapan",
     "role": "PLAYER",
     "description": "どんなゲームも全力で楽しみ、幅広いジャンルを愛するエンターテイナー！楽しむことをモットーに、みんなを笑顔にするプレイヤー",
-    "icon": "profile_images/icon_odapan.png",
+  "icon": "profile_images/icon_odapan.jpg",
     "sns": []
   },
   {
@@ -475,7 +475,7 @@
     "name_en": "S-chan",
     "role": "PLAYER",
     "description": "PNZを背負う最強のAPEXプレデター！えぺもシージも鉄拳もVALOも自在にこなし、人数不利さえも跳ね返す対応力！万能の戦場覇者",
-    "icon": "profile_images/icon_schan.png",
+  "icon": "profile_images/icon_schan.jpg",
     "sns": []
   },
   {
@@ -483,7 +483,7 @@
     "name_en": "Satooooo",
     "role": "STAFF",
     "description": "表舞台には出ないけれど、その技術がなければ大会は始まらない！PNZを支える縁の下の力持ち！\nNFTアートも愛する天才スタッフ！我らが誇る最高の技術者・佐藤！",
-    "icon": "profile_images/icon_sato.png",
+  "icon": "profile_images/icon_sato.jpg",
     "sns": [
       {
         "type" : "X",
