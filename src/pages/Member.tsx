@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import memberListRaw from '../data/team-member-list.json';
 import styles from "./Top.module.css";
 import layoutStyles from "../layouts/Layout.module.css";
@@ -11,6 +13,24 @@ const ROLE_GROUPS = [
 ];
 
 const Member = () => {
+  const [descAnim, setDescAnim] = useState(false);
+  const [sloganAnim, setSloganAnim] = useState(false);
+  const [btnAnim, setBtnAnim] = useState([false, false, false]);
+
+  useEffect(() => {
+    setTimeout(() => setDescAnim(true), 600);
+    setTimeout(() => setSloganAnim(true), 300);
+    // セレクトボタンのフェードイン（順に遅延）
+    ROLE_GROUPS.forEach((_, idx) => {
+      setTimeout(() => {
+        setBtnAnim(prev => {
+          const arr = [...prev];
+          arr[idx] = true;
+          return arr;
+        });
+      }, 400 + idx * 180);
+    });
+  }, []);
   const [searchParams, setSearchParams] = useSearchParams();
   const initialIdx = Number(searchParams.get('role')) || 0;
   const [roleGroupIdx, setRoleGroupIdx] = useState(initialIdx);
@@ -19,13 +39,47 @@ const Member = () => {
     setSearchParams({ role: String(roleGroupIdx) });
   }, [roleGroupIdx, setSearchParams]);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      offset: 120,
+      easing: 'ease-out-cubic',
+    });
+  }, []);
+
   const currentRoles = ROLE_GROUPS[roleGroupIdx].roles;
   const filteredMembers = memberListRaw.filter(m => currentRoles.includes(m.role));
 
   return (
   <div>
-      <h2 style={{ textAlign: 'center', color: '#e53935', fontSize: '2rem', fontWeight: 'normal', letterSpacing: '0.08em', marginBottom: '0.7rem', fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace'}}>MEMBERS</h2>
-      <div style={{ textAlign: 'center', color: '#fff', fontSize: '1.08rem', marginBottom: '2rem', fontFamily: '03SmartFontUI', opacity: 0.8 }}>
+      <h2
+        style={{
+          textAlign: 'center',
+          color: '#e53935',
+          fontSize: '2rem',
+          fontWeight: 'normal',
+          letterSpacing: sloganAnim ? '0.08em' : '0.3em',
+          marginBottom: '0.7rem',
+          fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace',
+          opacity: sloganAnim ? 1 : 0,
+          transition: 'opacity 0.7s cubic-bezier(0.77,0,0.175,1), letter-spacing 0.7s cubic-bezier(0.77,0,0.175,1)'
+        }}
+      >
+        MEMBERS
+      </h2>
+      <div
+        style={{
+          textAlign: 'center',
+          color: '#fff',
+          fontSize: '1.08rem',
+          marginBottom: '2rem',
+          fontFamily: '03SmartFontUI',
+          opacity: descAnim ? 0.8 : 0,
+          transform: descAnim ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'opacity 0.7s cubic-bezier(0.77,0,0.175,1), transform 0.7s cubic-bezier(0.77,0,0.175,1)'
+        }}
+      >
         PNZには様々なメンバーがおり、それぞれのメンバーが個性を爆発させて活動しています <span style={{fontSize:'1.3em'}}>💥</span>
       </div>
       {/* ロール切替ボタン */}
@@ -43,7 +97,10 @@ const Member = () => {
               fontWeight: 'normal',
               padding: '0.7rem 2.2rem',
               fontSize: '1.1rem',
-              borderRadius: 0
+              borderRadius: 0,
+              opacity: btnAnim[idx] ? 1 : 0,
+              transform: btnAnim[idx] ? 'translateY(0)' : 'translateY(24px)',
+              transition: 'opacity 0.7s cubic-bezier(0.77,0,0.175,1), transform 0.7s cubic-bezier(0.77,0,0.175,1)',
             }}
           >
             {group.label}
@@ -67,7 +124,15 @@ const Member = () => {
             key={member.name_en}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
-            <div className={styles.greetingBox} style={{ width: 460, height: 200, cursor: 'pointer', marginBottom: '2rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '2rem', position: 'relative' }}>
+            <div
+              className={styles.greetingBox}
+              style={{ width: 460, height: 200, cursor: 'pointer', marginBottom: '2rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '2rem', position: 'relative' }}
+              data-aos="fade-up"
+              data-aos-offset="120"
+              data-aos-duration="800"
+              data-aos-easing="ease-out-cubic"
+              data-aos-delay={(filteredMembers.indexOf(member) % 3) * 120}
+            >
               <div className={styles.greetingText} style={{ textAlign: 'left', flex: 1 }}>
                 <div style={{ fontSize: "1.1rem", fontWeight: "normal", color: '#e53935', marginBottom: '0.5rem', fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace' }}>
                   {member.role}

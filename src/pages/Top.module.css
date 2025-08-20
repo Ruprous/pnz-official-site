@@ -148,7 +148,21 @@
   margin: 3rem 0;
   background: #111;
   padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
 }
+.newsSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .newsTitle {
   text-align: center;
   font-size: 1.5rem;
@@ -156,49 +170,76 @@
   color: #fff;
   letter-spacing: 0.08em;
   text-shadow: 0 0 4px #e53935;
+  position: relative;
+  z-index: 1;
 }
 .newsList {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-top: 1rem;
+  position: relative;
+  z-index: 1;
 }
+
 .newsCard {
-  width: 420px;
-  min-height: 340px;
-  border: 2px solid #e53935;
+  background: #000;
   border-radius: 0;
-  background: #222;
-  box-shadow: 0 0 8px #e53935;
-  padding: 32px 24px;
+  box-shadow: 0 0 0 3px #e53935, 0 0 12px #222;
+  padding: 1.2rem;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  transition: box-shadow 0.2s;
+  position: relative;
 }
-.newsImg {
+
+.newsCardThumbnail {
   width: 100%;
+  aspect-ratio: 16/9;
+  margin-bottom: 1rem;
+  background: #000;
+  overflow: hidden;
   border-radius: 0;
-  box-shadow: 0 0 8px #e53935;
+  box-shadow: 0 0 0 2px #e53935, 0 0 12px #222;
 }
+
 .newsCardTitle {
-  font-size: 1.1rem;
-  margin: 0.7em 0 0.3em;
-  color: #fff;
-  text-shadow: 0 0 2px #e53935;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.03em;
 }
+
 .newsCardDate {
-  font-size: 0.95rem;
-  color: #fff;
+  font-size: 1rem;
+  color: #e53935;
+  margin-bottom: 1.2rem;
 }
+
+.newsCardTags {
+  margin-bottom: 0.7rem;
+}
+
+.newsCardTag {
+  display: inline-block;
+  background: #e53935;
+  color: #fff;
+  border-radius: 0;
+  padding: 2px 8px;
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
 .newsCardLink {
   color: #e53935;
   text-decoration: underline;
-  font-family: 'Share Tech Mono', 'Consolas', monospace;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .newsMoreWrap {
   text-align: center;
   margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .logoSplash {

@@ -1,30 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import memberListRaw from '../data/team-member-list.json';
 import styles from "./Top.module.css";
 import layoutStyles from "../layouts/Layout.module.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Topページ本体
 const Top: React.FC = () => {
-  const [showLogo, setShowLogo] = useState(true);
-  const logoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!logoRef.current) return;
-    // ロゴアニメーションのみ
-    import("gsap").then(({ default: gsap }) => {
-      const tl = gsap.timeline({
-        onComplete: () => setShowLogo(false),
-      });
-      tl.fromTo(
-        logoRef.current,
-        { opacity: 0, scale: 0.7 },
-        { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }
-      )
-        .to(logoRef.current, { scale: 1.1, duration: 0.2, ease: "power1.inOut" })
-        .to(logoRef.current, { opacity: 0, scale: 1.4, duration: 0.7, ease: "power2.in" });
-    });
-  }, []);
-
   // NEXTボタンのスクロール挙動（ヘッダー分だけ余白を残す）
   const handleNextClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -125,15 +107,20 @@ const Top: React.FC = () => {
     loadNews();
   }, []);
 
+  const [sloganAnim, setSloganAnim] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 120,
+      easing: 'ease-out-cubic',
+    });
+    // スローガンアニメーション（初回のみ）
+    setTimeout(() => setSloganAnim(true), 300);
+  }, []);
+
   return (
     <>
-      {/* ロゴアニメーション */}
-      {showLogo && (
-        <div ref={logoRef} className={styles.logoSplash}>
-          <img src="/logo_mini.PNG" alt="TEAM PNZ ロゴ" className={styles.logoSplashImg} />
-        </div>
-      )}
-
       {/* メインビジュアル＋NEXTボタン重ね表示 */}
       <section className={styles.mainVisual}>
         <div className={styles.mainVisualImgWrap}>
@@ -143,11 +130,41 @@ const Top: React.FC = () => {
             className={styles.mainVisualImg}
           />
           <div className={styles.sloganOverlay}>
-            <h1 className={styles.sloganTitle}>Do All Kind of Things for Fun.</h1>
-            <p className={styles.sloganSub}>色んな事を楽しくやる。</p>
+            <h1
+              className={styles.sloganTitle}
+              style={{
+                opacity: sloganAnim ? 1 : 0,
+                letterSpacing: sloganAnim ? '0.08em' : '0.3em',
+                transition: 'opacity 1.2s cubic-bezier(0.77,0,0.175,1), letter-spacing 1.2s cubic-bezier(0.77,0,0.175,1)',
+                textAlign: 'center',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Do All Kind of Things for Fun.
+            </h1>
+            <p
+              className={styles.sloganSub}
+              style={{
+                opacity: sloganAnim ? 1 : 0,
+                letterSpacing: sloganAnim ? '0.08em' : '0.3em',
+                transition: 'opacity 1.2s cubic-bezier(0.77,0,0.175,1), letter-spacing 1.2s cubic-bezier(0.77,0,0.175,1)',
+                textAlign: 'center',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              色んな事を楽しくやる。
+            </p>
           </div>
           <div className={styles.nextBtnOverlay}>
-            <a href="#greeting" className={`${layoutStyles.btn}`} onClick={handleNextClick}>
+            <a
+              href="#greeting"
+              className={`${layoutStyles.btn}`}
+              onClick={handleNextClick}
+              data-aos="fade-up"
+              data-aos-offset="120"
+              data-aos-duration="800"
+              data-aos-easing="ease-out-cubic"
+            >
               SCROLL DOWN
               <span className={layoutStyles.btn__label}>TEAM PNZ</span>
             </a>
@@ -158,11 +175,17 @@ const Top: React.FC = () => {
       {/* オーナーからの挨拶（固定） */}
       <section id="greeting" className={styles.greetingSection}>
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0' }}>
-          <h2 style={{ textAlign: 'center', color: '#e53935', fontSize: '2rem', fontWeight: 'normal', letterSpacing: '0.08em', marginBottom: '2rem', fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace'}}>
+          <h2
+              style={{ textAlign: 'center', color: '#e53935', fontSize: '2rem', fontWeight: 'normal', letterSpacing: '0.08em', marginBottom: '2rem', fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace'}}
+              data-aos="fade-up"
+              data-aos-offset="400" // 判定をさらに遅らせる（デフォルト120→400）
+              data-aos-duration="800"
+              data-aos-easing="ease-out-cubic"
+          >
             MEMBERS
           </h2>
           <div style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '2rem' }}>
-            <div className={styles.greetingBox}>
+              <div className={styles.greetingBox} data-aos="fade-right" data-aos-offset="400" data-aos-duration="800" data-aos-easing="ease-out-cubic">
               <div className={styles.greetingText}>
                 <div style={{ fontSize: "1.1rem", fontWeight: "normal", color: '#e53935', marginBottom: '0.5rem', fontFamily: 'Tomorrow, Barlow, Share Tech Mono, Consolas, monospace' }}>
                   OWNER
@@ -186,7 +209,7 @@ const Top: React.FC = () => {
                 />
               </div>
             </div>
-            <div className={styles.greetingBox} style={{ flexDirection: 'row' }}>
+              <div className={styles.greetingBox} style={{ flexDirection: 'row' }} data-aos="fade-left" data-aos-offset="400" data-aos-duration="800" data-aos-easing="ease-out-cubic">
               <div
                 style={{ transition: 'opacity 0.5s', opacity: fade ? 1 : 0, display: 'flex', flexDirection: 'row', width: '100%' }}
               >
@@ -216,7 +239,7 @@ const Top: React.FC = () => {
           </div>
           {/* SHOW ALL MEMBERSボタンを枠群の下・中央に配置 */}
           <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
-            <a href="/member" className={`${layoutStyles.btn}`}> 
+            <a href="/member" className={`${layoutStyles.btn}`} data-aos="fade-down" data-aos-offset="120" data-aos-duration="800" data-aos-easing="ease-out-cubic">
               SHOW ALL MEMBERS
               <span className={layoutStyles.btn__label}>TEAM PNZ</span>
             </a>
@@ -224,17 +247,32 @@ const Top: React.FC = () => {
         </div>
       </section>
 
-      {/* ニュース（ダミー） */}
-      <section className={styles.newsSection}>
+      {/* ニュース*/}
+      <section className={styles.newsSection} style={{
+        backgroundImage: 'url(/subimage.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
         <h2 className={styles.newsTitle}>NEWS</h2>
         <div className={styles.newsList}>
           {newsList.map((news) => (
-            <div className={styles.newsCard} key={news.fileName}>
-              <img
-                src={news.thumbnail && news.thumbnail !== '' ? news.thumbnail : '/mainimage.png'}
-                alt={news.title}
-                className={styles.newsImg}
-              />
+            <div
+              className={styles.newsCard}
+              key={news.fileName}
+              style={{ width: '420px', minHeight: '340px' }}
+              data-aos="fade-up"
+              data-aos-offset="120"
+              data-aos-duration="800"
+              data-aos-easing="ease-out-cubic"
+            >
+              <div className={styles.newsCardThumbnail}>
+                <img
+                  src={news.thumbnail && news.thumbnail !== '' ? news.thumbnail : '/mainimage.png'}
+                  alt={news.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
               <h3 className={styles.newsCardTitle}>{news.title}</h3>
               <p className={styles.newsCardDate}>{news.date}</p>
               <a
@@ -247,7 +285,7 @@ const Top: React.FC = () => {
           ))}
         </div>
         <div className={styles.newsMoreWrap}>
-          <a href="/newslist" className={`${layoutStyles.btn}`}>
+          <a href="/newslist" className={`${layoutStyles.btn}`} data-aos="fade-up" data-aos-offset="120" data-aos-duration="800" data-aos-easing="ease-out-cubic">
             AND MORE
             <span className={layoutStyles.btn__label}>TEAM PNZ</span>
           </a>

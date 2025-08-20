@@ -135,9 +135,10 @@ const News = () => {
         {pagedList.map((news, idx) => {
           // サムネイル画像が未定義または空の場合は/mainimage.pngを表示
           const thumbnailSrc = news.thumbnail && news.thumbnail !== '' ? news.thumbnail : '/mainimage.png';
+          const detailUrl = `/newsdetail?news=${news.fileName}`;
           return (
-            <div key={idx} style={{ background: "#222", borderRadius: 0, boxShadow: "0 0 0 3px #e53935, 0 0 12px #222", padding: "1.2rem", color: "#fff", transition: "box-shadow 0.2s", position: "relative" }}>
-              <div style={{ width: "100%", aspectRatio: "16/9", marginBottom: "1rem", background: "#000", overflow: "hidden", borderRadius: 0, boxShadow: "0 0 0 2px #e53935, 0 0 12px #222" }}>
+            <div key={idx} style={{ background: "#000", borderRadius: 0, boxShadow: "0 0 0 3px #e53935, 0 0 12px #222", padding: "1.2rem", color: "#fff", transition: "box-shadow 0.2s", position: "relative" }}>
+              <a href={detailUrl} style={{ display: "block", width: "100%", aspectRatio: "16/9", marginBottom: "1rem", background: "#000", overflow: "hidden", borderRadius: 0, boxShadow: "0 0 0 2px #e53935, 0 0 12px #222" }}>
                 <img
                   src={thumbnailSrc}
                   alt="thumbnail"
@@ -148,15 +149,15 @@ const News = () => {
                     display: "block"
                   }}
                 />
-              </div>
-              <div style={{ fontSize: "1.15rem", fontWeight: "bold", marginBottom: "0.7rem", letterSpacing: "0.03em" }}>{news.title || "タイトル未設定"}</div>
+              </a>
+              <a href={detailUrl} style={{ fontSize: "1.15rem", fontWeight: "bold", marginBottom: "0.7rem", letterSpacing: "0.03em", color: "#fff", textDecoration: "none", display: "block" }}>{news.title || "タイトル未設定"}</a>
               <div style={{ fontSize: "1rem", color: "#e53935", marginBottom: "1.2rem" }}>{news.date || "日付未設定"}</div>
               <div style={{ marginBottom: "0.7rem" }}>
                 {Array.isArray(news.tags) && news.tags.map((t: string) => (
                   <span key={t} style={{ display: "inline-block", background: "#e53935", color: "#fff", borderRadius: 0, padding: "2px 8px", marginRight: 6, fontSize: "0.9rem" }}>{t}</span>
                 ))}
               </div>
-              <a href={`/newsdetail?news=${news.fileName}`} style={{ color: "#e53935", textDecoration: "underline", fontWeight: "bold", fontSize: "1rem" }}>詳細を見る</a>
+              <a href={detailUrl} style={{ color: "#e53935", textDecoration: "underline", fontWeight: "bold", fontSize: "1rem" }}>詳細を見る</a>
             </div>
           );
         })}
